@@ -14,7 +14,7 @@ function setup() {
   imageMode(CENTER);
   player = new Player();
   EnemyImg = loadImage('assets/enemy 1.png');
-  playerImg = loadImage('assets/Player.png');
+  playerImg = loadImage('assets/player.png');
   grassImg = loadImage('assets/grass.jpg');
   enemy.push(new Enemy(random(speed)));
 }
