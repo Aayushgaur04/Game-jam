@@ -3,14 +3,14 @@ class Bullet {
     this.x = x;
     this.y = y;
     this.angle = angle;
-    this.speed = 16;
+    this.speed = 20;
   }
   
   
   draw() {
     push();
     fill(0);
-    circle(this.x, this.y, 5);
+    circle(this.x, this.y, 8);
     pop();
   }
   

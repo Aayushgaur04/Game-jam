@@ -11,7 +11,7 @@ class Player {
     translate(this.pos.x, this.pos.y);
     this.angle = atan2(mouseY - this.pos.y, mouseX - this.pos.x);
     rotate(this.angle);
-    image(playerImg, 0, 0, 30, 30);
+    image(playerImg, 0, 0, 50, 50);
     pop();
     
     
@@ -24,7 +24,7 @@ class Player {
       this.bullets.splice(0, 1);
     }
   }
-
+  
   update() {
     
     let sidewaysSpeed = 0;
@@ -50,7 +50,7 @@ class Player {
   
   shot(enemy) {
     for (let i = this.bullets.length - 1; i >= 0; i--) {
-      if (dist(this.bullets[i].x, this.bullets[i].y, enemy.pos.x, enemy.pos.y) < 10) {
+      if (dist(this.bullets[i].x, this.bullets[i].y, enemy.pos.x, enemy.pos.y) < 30) {
         this.bullets.splice(i, 1);
         return true;
       }

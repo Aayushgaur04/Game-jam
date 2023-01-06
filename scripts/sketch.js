@@ -7,10 +7,9 @@ let enemy = [];
 let framesTillCreate = 300;
 let frame = 0;
 let speed = 2;
-let score = 0;
 
 function setup() {
-  createCanvas(700, 700);
+  createCanvas(1200, 600);
   imageMode(CENTER);
   player = new Player();
   EnemyImg = loadImage('assets/enemy 1.png');
@@ -31,7 +30,6 @@ function draw() {
     enemy[i].update();
     if (player.shot(enemy[i])) {
       enemy.splice(i, 1);
-      score++;
     }
   }
   
@@ -46,9 +44,6 @@ function draw() {
   if (frameCount % 1000 == 0) {
     speed+=0.1;
   }
-  textAlign(CENTER);
-  textSize(40);
-  text(score, width/2, 100);
   
 }
 
