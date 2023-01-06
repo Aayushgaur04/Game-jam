@@ -2,7 +2,7 @@
 // I do a lot of p5.js stuff that might interest you!
 
 let player;
-let zombies = [];
+let enemy = [];
 
 let framesTillCreate = 300;
 let frame = 0;
@@ -13,10 +13,10 @@ function setup() {
   createCanvas(700, 700);
   imageMode(CENTER);
   player = new Player();
-  zombieImg = loadImage('assets/zombie.png');
-  playerImg = loadImage('assets/player.png');
+  EnemyImg = loadImage('assets/enemy 1.png');
+  playerImg = loadImage('assets/Player.png');
   grassImg = loadImage('assets/grass.jpg');
-  zombies.push(new Zombie(random(speed)));
+  enemy.push(new Enemy(random(speed)));
 }
 
 function draw() {
@@ -26,17 +26,17 @@ function draw() {
   player.draw();
   player.update();
   
-  for (let i = zombies.length - 1; i >= 0; i--) {
-    zombies[i].draw();
-    zombies[i].update();
-    if (player.shot(zombies[i])) {
-      zombies.splice(i, 1);
+  for (let i = enemy.length - 1; i >= 0; i--) {
+    enemy[i].draw();
+    enemy[i].update();
+    if (player.shot(enemy[i])) {
+      enemy.splice(i, 1);
       score++;
     }
   }
   
-  if (frame > framesTillCreate && zombies.length < 300) {
-    zombies.push(new Zombie(random(speed)));
+  if (frame > framesTillCreate && enemy.length < 300) {
+    enemy.push(new Enemy(random(speed)));
     frame = 0;
     if (framesTillCreate > 20) {
       framesTillCreate *= 0.95;

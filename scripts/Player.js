@@ -48,9 +48,9 @@ class Player {
     this.pos.add(sidewaysSpeed, forwardSpeed);
   }
   
-  shot(zombie) {
+  shot(enemy) {
     for (let i = this.bullets.length - 1; i >= 0; i--) {
-      if (dist(this.bullets[i].x, this.bullets[i].y, zombie.pos.x, zombie.pos.y) < 10) {
+      if (dist(this.bullets[i].x, this.bullets[i].y, enemy.pos.x, enemy.pos.y) < 10) {
         this.bullets.splice(i, 1);
         return true;
       }
