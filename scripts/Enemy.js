@@ -33,7 +33,7 @@ class Enemy {
     //rect(0, 0, 20, 20);
     pop();
 
-    /* enemybullet*/
+    /* enemybullet
     for (let Enemybullet of this.Enemybullets) {
       Enemybullet.draw();
       Enemybullet.update();
@@ -41,7 +41,7 @@ class Enemy {
     
     if (this.Enemybullets.length > 20) {
       this.Enemybullets.splice(0, 1);
-    }
+    }*/
   }
   
   update() {
@@ -52,7 +52,7 @@ class Enemy {
 
   /* this is for enemy bullet*/
   
-  function Enemybullet(destinationX, destinationY, enemySprite) {
+  /*function Enemybullet(destinationX, destinationY, enemySprite) {
 
     this.id = 'bullet';
     this.x = enemySprite.getX()+(enemySprite.getWidth()/2);
@@ -82,7 +82,7 @@ class Enemy {
         this.x += this.velX;
         this.y += this.velY;
 
-        this.sprite.setAbsolutePosition(this.x, this.y);
+        this.sprite.setAbsolutePosition(this.x, this.y);*/
         //console.log(this.sprite.getX());
 
 /*
@@ -90,7 +90,7 @@ class Enemy {
             mayDelete = true;
         }*/
 
-        if (bulletLeftField(this.sprite) == true) {
+       /* if (bulletLeftField(this.sprite) == true) {
             mayDelete = true;
         }
 
@@ -103,5 +103,5 @@ class Enemy {
 
 
         ammoLayer.draw();
-    }
+    }*/
 }
