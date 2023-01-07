@@ -12,6 +12,7 @@ class Bullet {
     fill(0);
     circle(this.x, this.y, 8);
     pop();
+    
   }
   
   update() {

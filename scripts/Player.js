@@ -1,6 +1,6 @@
 class Player {
   constructor() {
-    this.pos = createVector(width/2, height/2);
+    this.pos = createVector(110, 550);
     this.bullets = [];
     this.angle = 0;
   }
@@ -14,7 +14,23 @@ class Player {
     image(playerImg, -15, 0, 50, 50);
     pop();
     
-    
+    //wall boundaries
+    if (this.pos.x < 47) {//0+32+15 , 15 is additional as in playerIMG & 32 is wall size.0is cordinate
+      this.pos.x = this.pos.x + 2;//left
+    }
+    if (this.pos.x > 1153) { //1200 -32-15
+      this.pos.x = this.pos.x - 2;//right
+    }
+    if (this.pos.y < 47) {//0+32+15
+      this.pos.y = this.pos.y + 2;//top
+    }
+    if (this.pos.y > 553) {//600-32-15
+      this.pos.y = this.pos.y - 2;//bottom
+    }
+
+
+
+
     for (let bullet of this.bullets) {
       bullet.draw();
       bullet.update();

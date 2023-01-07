@@ -10,11 +10,14 @@ let speed = 2;
 
 function setup() {
   createCanvas(1200, 600);
+  
   imageMode(CENTER);
   player = new Player();
   EnemyImg = loadImage('assets/enemy 1.png');
   playerImg = loadImage('assets/player.png');
   grassImg = loadImage('assets/grass.jpg');
+  llcImg = loadImage('assets/wall lower left corner.png')
+
   enemy.push(new Enemy(random(speed)));
 }
 
@@ -24,6 +27,7 @@ function draw() {
   frame++;
   player.draw();
   player.update();
+
   
   for (let i = enemy.length - 1; i >= 0; i--) {
     enemy[i].draw();
