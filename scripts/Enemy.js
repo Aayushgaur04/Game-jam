@@ -37,7 +37,7 @@ class Enemy {
       return enemies[randomNum];
     }
     var enemies = new Array(enemyImg, enmey2Img);*/
-    image(enemyImg, 0, 0, 50, 50);//chooseEnemy(enemies)
+    image(enemyImg, 0, 0, 32, 32);//chooseEnemy(enemies)
     //rect(0, 0, 20, 20);
     pop();
 
