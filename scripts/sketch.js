@@ -8,6 +8,9 @@ let speed = 2;
 let width = 1200;//1366 covers full screen according to my laptop
 let height = 600;//635  "
 
+var health = 50;
+var maxHealth = 100;
+
 function setup() {
   createCanvas(width, height);
   
@@ -24,8 +27,22 @@ function setup() {
 }
 
 function draw() {
-  image(bgImg, 0, 0, width*2, height * 2);
+
+  //HP BAR
+  background(100);
+
+  health = min(maxHealth, ++health);
+  image(bgImg, 0, 0, width*2 , height * 2);
   
+  stroke(0);
+  strokeWeight(2);
+  noFill();
+  rect(10, 20, map(health, 0, maxHealth, 0, 200), 20);
+  
+  noStroke();
+  fill(255, 0, 0);
+  rect(10, 20, map(health, 0, maxHealth, 0, 200), 20);
+
   frame++;
   player.draw();
   player.update();
@@ -39,6 +56,7 @@ function draw() {
     }
   }
   
+
   if (frame > framesTillCreate && enemy.length < 300) {
     enemy.push(new Enemy(random(speed)));
     frame = 0;
@@ -47,11 +65,12 @@ function draw() {
     }
   }
   
+
   if (frameCount % 1000 == 0) {
     speed+=0.1;
   }
-  
 }
+
 
 function mouseClicked() {
   player.shoot();
