@@ -66,7 +66,7 @@ class Player {
   
   shot(enemy) {
     for (let i = this.bullets.length - 1; i >= 0; i--) {
-      if (dist(this.bullets[i].x, this.bullets[i].y, enemy.pos.x, enemy.pos.y) < 30) {
+      if (dist(this.bullets[i].x, this.bullets[i].y, enemy.pos.x, enemy.pos.y) < 20) {
         this.bullets.splice(i, 1);
         return true;
       }

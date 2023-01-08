@@ -44,6 +44,7 @@ function draw() {
   rect(10, 20, map(health, 0, maxHealth, 0, 200), 20);
 
   frame++;
+  
   player.draw();
   player.update();
 
@@ -55,6 +56,7 @@ function draw() {
       enemy.splice(i, 1);
     }
   }
+  
   
 
   if (frame > framesTillCreate && enemy.length < 300) {
@@ -74,4 +76,5 @@ function draw() {
 
 function mouseClicked() {
   player.shoot();
+  enemy.shoot();
 }

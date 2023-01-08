@@ -1,22 +1,11 @@
 class Enemy {
   
   constructor(speed) {
-    this.x = random(width);
-    this.y = random(height);
-    
-    if (random(1) > 0.5) {
-      this.x += width;
-    } else {
-      this.x -= width;
-    }
-    
-    if (random(1) > 0.5) {
-      this.y += height;
-    } else {
-      this.y -= height;
-    }
+    this.x = 600;
+    this.y = 300;
     this.pos = createVector(this.x, this.y);
     this.speed = speed;
+    this.bullets = [];
     this.angle = 0;
   }
   
@@ -31,16 +20,19 @@ class Enemy {
     fill(100, 255, 100);
 
 
-    /*randome image choser fr enemy
-    function chooseEnemy(enemies) {
-      var randomNum = Math.floor(Math.random() * enemies.length);
-      return enemies[randomNum];
-    }
-    var enemies = new Array(enemyImg, enmey2Img);*/
-    image(enemyImg, 0, 0, 32, 32);//chooseEnemy(enemies)
-    //rect(0, 0, 20, 20);
+    image(enemyImg, 0, 0, 32, 32);
     pop();
 
+
+    for (let bullet of this.bullets) {
+      bullet.draw();
+      bullet.update();
+    }
+    
+    if (this.bullets.length > 20) {
+      this.bullets.splice(0, 1);
+    }
+  }
     /* enemybullet
     for (let Enemybullet of this.Enemybullets) {
       Enemybullet.draw();
@@ -50,12 +42,15 @@ class Enemy {
     if (this.Enemybullets.length > 20) {
       this.Enemybullets.splice(0, 1);
     }*/
-  }
+  
+  
+
   
   update() {
     let difference = p5.Vector.sub(player.pos, this.pos);
     difference.limit(this.speed);
     this.pos.add(difference);
+
   }
 
   /* this is for enemy bullet*/
@@ -112,4 +107,5 @@ class Enemy {
 
         ammoLayer.draw();
     }*/
+  
 }
