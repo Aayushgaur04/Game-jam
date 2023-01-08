@@ -1,9 +1,7 @@
 class Enemy {
   
   constructor(speed) {
-    this.x = 600;
-    this.y = 300;
-    this.pos = createVector(this.x, this.y);
+    this.pos = createVector(600, 300);
     this.speed = speed;
     this.bullets = [];
     this.angle = 0;
@@ -17,45 +15,51 @@ class Enemy {
     translate(this.pos.x, this.pos.y);
     this.angle = atan2(player.pos.y - this.pos.y, player.pos.x - this.pos.x);
     rotate(this.angle);
-    fill(100, 255, 100);
 
 
-    image(enemyImg, 0, 0, 32, 32);
+    image(enemyImg, -15, 0, 32, 32);
+    
     pop();
 
-
-    for (let bullet of this.bullets) {
+//bullet for enemy 
+   for (let bullet of this.bullets) {
       bullet.draw();
       bullet.update();
     }
     
-    if (this.bullets.length > 20) {
+    if (this.bullets.length > 0) {
       this.bullets.splice(0, 1);
     }
   }
-    /* enemybullet
-    for (let Enemybullet of this.Enemybullets) {
-      Enemybullet.draw();
-      Enemybullet.update();
-    }
     
-    if (this.Enemybullets.length > 20) {
-      this.Enemybullets.splice(0, 1);
-    }*/
-  
-  
-
-  
   update() {
+    // he moves towards us
     let difference = p5.Vector.sub(player.pos, this.pos);
     difference.limit(this.speed);
     this.pos.add(difference);
-
+  }
+  
+  shot(player) {
+    for (let i = this.bullets.length - 1; i >= 0; i--) {
+      if (dist(this.bullets[i].x, this.bullets[i].y, player.pos.x, player.pos.y) < 20) {
+        this.bullets.splice(i, 1);
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  shoot() {
+    this.bullets.push(new Bullet(this.pos.x, this.pos.y, this.angle));
   }
 
-  /* this is for enemy bullet*/
+
   
-  /*function Enemybullet(destinationX, destinationY, enemySprite) {
+
+
+  /* this is for enemy bullet
+  
+  bullet(destinationX, destinationY, enemySprite) {
 
     this.id = 'bullet';
     this.x = enemySprite.getX()+(enemySprite.getWidth()/2);
@@ -76,7 +80,8 @@ class Enemy {
         radius: 3,
         fill: 'black',
         name: 'enemyProjectile'
-    });
+    })
+  
 
     this.draw = function(index) {
 
@@ -85,15 +90,15 @@ class Enemy {
         this.x += this.velX;
         this.y += this.velY;
 
-        this.sprite.setAbsolutePosition(this.x, this.y);*/
+        this.sprite.setAbsolutePosition(this.x, this.y);
         //console.log(this.sprite.getX());
 
-/*
+
         if(enemyCollision(this) == true) {
             mayDelete = true;
-        }*/
+        }
 
-       /* if (bulletLeftField(this.sprite) == true) {
+        if (bulletLeftField(this.sprite) == true) {
             mayDelete = true;
         }
 
@@ -106,6 +111,6 @@ class Enemy {
 
 
         ammoLayer.draw();
-    }*/
-  
+    }
+  }*/
 }

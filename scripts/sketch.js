@@ -52,12 +52,14 @@ function draw() {
   for (let i = enemy.length - 1 ; i >= 0; i--) {
     enemy[i].draw();
     enemy[i].update();
+    enemy[i].shoot();
     if (player.shot(enemy[i])) {
       enemy.splice(i, 1);
     }
+    
   }
   
-  
+    
 
   if (frame > framesTillCreate && enemy.length < 300) {
     enemy.push(new Enemy(random(speed)));
@@ -66,15 +68,9 @@ function draw() {
       framesTillCreate *= 0.95;
     }
   }
-  
-
-  if (frameCount % 1000 == 0) {
-    speed+=0.1;
-  }
 }
 
 
 function mouseClicked() {
   player.shoot();
-  enemy.shoot();
 }
