@@ -1,6 +1,3 @@
-// Find my blog at https://codeheir.com/
-// I do a lot of p5.js stuff that might interest you!
-
 let player;
 let enemy = [];
 
@@ -8,28 +5,33 @@ let framesTillCreate = 300;
 let frame = 0;
 let speed = 2;
 
+let width = 1200;//1366 covers full screen according to my laptop
+let height = 600;//635  "
+
 function setup() {
-  createCanvas(1200, 600);
+  createCanvas(width, height);
   
   imageMode(CENTER);
   player = new Player();
-  EnemyImg = loadImage('assets/enemy 1.png');
-  playerImg = loadImage('assets/player.png');
-  grassImg = loadImage('assets/grass.jpg');
-  llcImg = loadImage('assets/wall lower left corner.png')
 
-  enemy.push(new Enemy(random(speed)));
+  enemyImg = loadImage('assets/enemy.png');
+  enmey2Img = loadImage('assets/enemy 1.png');
+  
+  
+  playerImg = loadImage('assets/player.png');
+  bgImg = loadImage('assets/bg.jpg');
+  enemy.push(new Enemy((speed)));
 }
 
 function draw() {
-  image(grassImg, 0, 0, width*2, height * 2);
+  image(bgImg, 0, 0, width*2, height * 2);
   
   frame++;
   player.draw();
   player.update();
 
   
-  for (let i = enemy.length - 1; i >= 0; i--) {
+  for (let i = enemy.length - 1 ; i >= 0; i--) {
     enemy[i].draw();
     enemy[i].update();
     if (player.shot(enemy[i])) {
