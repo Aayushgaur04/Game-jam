@@ -11,20 +11,20 @@ class Player {
     translate(this.pos.x, this.pos.y);
     this.angle = atan2(mouseY - this.pos.y, mouseX - this.pos.x);
     rotate(this.angle);
-    image(playerImg, -15, 0, 50, 50);
+    image(playerImg, -15, 0, 32, 32);
     pop();
     
     //wall boundaries
-    if (this.pos.x < 47) {//0+32+15 , 15 is additional as in playerIMG & 32 is wall size.0is cordinate
+    if (this.pos.x < 57) {//0+32+25 , 15 is additional as in playerIMG & 32 is wall size.0is cordinate
       this.pos.x = this.pos.x + 2;//left
     }
-    if (this.pos.x > 1153) { //1200 -32-15
+    if (this.pos.x > 1143) { //1200 -32-25
       this.pos.x = this.pos.x - 2;//right
     }
-    if (this.pos.y < 47) {//0+32+15
+    if (this.pos.y < 57) {//0+32+25
       this.pos.y = this.pos.y + 2;//top
     }
-    if (this.pos.y > 553) {//600-32-15
+    if (this.pos.y > 543) {//600-32-25
       this.pos.y = this.pos.y - 2;//bottom
     }
 
