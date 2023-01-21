@@ -8,6 +8,12 @@ Main.prototype = {
 
 	create: function() {
 
+		// bg video
+		video = game.add.video('abc');
+		video.play(true);
+		//  x, y, anchor x, anchor y, scale x, scale y
+		video.addToWorld(0,0,0,0,5.5,4);
+
 		this.tileVelocity = -450;
 		this.rate = 1500;
 		score = 0;
@@ -15,9 +21,6 @@ Main.prototype = {
 		this.tileWidth = this.game.cache.getImage('tile').width;
 		this.tileHeight = this.game.cache.getImage('tile').height;
 		this.boxHeight = this.game.cache.getImage('box').height;
-
-		this.game.stage.backgroundColor = '479cde';
-
 
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
