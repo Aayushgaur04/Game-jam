@@ -25,13 +25,14 @@ GameOver.prototype = {
 	showScore: function () {
 
 		var scoreFont = "60px Arial";
+		var scoreFont2 = "30px Arial";
 
 		this.scoreLabel = this.game.add.text(this.game.world.centerX
 			, this.game.world.centerY / 2, "0", { font: scoreFont, fill: "#fff" });
 		this.scoreLabel.anchor.setTo(0.5, 0.5);
 		this.scoreLabel.align = 'center';
 		this.game.world.bringToTop(this.scoreLabel);
-		this.scoreLabel.text = "Your score is " + (score);
+		this.scoreLabel.text = "!!!Keep your surroundings Cleans!!!\n\nDistance travelled is " + (score);
 
 		this.highScore = this.game.add.text(this.game.world.centerX
 			, this.game.world.centerY, "0", { font: scoreFont, fill: "#fff" });
@@ -42,25 +43,24 @@ GameOver.prototype = {
 		this.hs = window.localStorage.getItem('HighScore');
 
 		if (this.hs == null) {
-			this.highScore.setText("High score: " + score);
+			this.highScore.setText("Highest Distance Travlled " + score);
 			window.localStorage.setItem('HighScore', score)
 		}
 		else if (parseInt(this.hs) < score) {
-			this.highScore.setText("High score: " + (score ));
+			this.highScore.setText("Highest Distance Travlled " + (score ));
 			window.localStorage.setItem('HighScore', score)
 
 		}
 		else {
-			this.highScore.setText("High score: " + this.hs);
+			this.highScore.setText("Highest Distance Travlled " + this.hs);
 		}
 
 		this.restart = this.game.add.text(this.game.world.centerX
-			, this.game.world.centerY * 1.5
-			, "Press \n Space to retry ", { font: scoreFont, fill: "#fff" });
+			, this.game.world.centerY * 1.75
+			, "Press \n Space to retry ", { font: scoreFont2, fill: "#fff" });
 		this.restart.anchor.setTo(0.5, 0.5);
 		this.restart.align = 'center';
 		this.game.world.bringToTop(this.restart);
-		// this.scoreLabel.bringToTop()
 
 	},
 

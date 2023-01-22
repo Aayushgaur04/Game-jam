@@ -127,7 +127,7 @@ Main.prototype = {
 	upInputIsActive: function (duration) {
 		var isActive = false;
 
-		isActive = this.input.keyboard.downDuration(Phaser.Keyboard.UP, duration);
+		isActive = this.input.keyboard.downDuration(Phaser.Keyboard.SPACEBAR, duration);
 		isActive |= (this.game.input.activePointer.justPressed(duration + 1000 / 60) &&
 			this.game.input.activePointer.x > this.game.width / 4 &&
 			this.game.input.activePointer.x < this.game.width / 2 + this.game.width / 4);
@@ -139,7 +139,7 @@ Main.prototype = {
 	upInputReleased: function () {
 		var released = false;
 
-		released = this.input.keyboard.upDuration(Phaser.Keyboard.UP);
+		released = this.input.keyboard.upDuration(Phaser.Keyboard.SPACEBAR);
 		released |= this.game.input.activePointer.justReleased();
 
 		return released;
@@ -154,7 +154,7 @@ Main.prototype = {
 		this.game.physics.arcade.enable(this.player);
 		this.player.body.gravity.y = 2200;
 		this.player.body.collideWorldBounds = true;
-		this.player.body.bounce.y = 0.1;
+		this.player.body.bounce.y = 0;
 		this.player.body.drag.x = 150;
 		var walk = this.player.animations.add('walk');
 		this.player.animations.play('walk', 20, true);

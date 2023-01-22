@@ -15,6 +15,6 @@ Preload.prototype = {
 	},
 
 	create: function(){
-		this.game.state.start("Main");
+		this.game.state.start("GameStart");
 	}
 }
