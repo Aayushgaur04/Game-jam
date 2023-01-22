@@ -4,7 +4,7 @@ Topic: Sunup to Sundown + Bonus(magic)
 
 Our game is an endless running game.
 
-We need to avoid obstacles & collect teashes to keep the surroundings clean.
+We need to avoid obstacles & collect trashes to keep the surroundings clean.
 
 Score is determined by how far the player has travelled & how may trash he/she has collected(i.e. cleaned),
 
