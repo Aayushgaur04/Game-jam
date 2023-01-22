@@ -12,7 +12,7 @@ Main.prototype = {
 		video = game.add.video('abc');
 		video.play(true);
 		//  x, y, anchor x, anchor y, scale x, scale y
-		video.addToWorld(0,0,0,0,5.5,4);
+		video.addToWorld(0,0,0,0,1.75,1.75);
 
 		this.tileVelocity = -450;
 		this.rate = 1500;
