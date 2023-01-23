@@ -9,7 +9,7 @@ Main.prototype = {
 	create: function() {
 
 		// bg video
-		video = game.add.video('abc');
+		video = game.add.video('bgvideo');
 		video.play(true);
 		//  x, y, anchor x, anchor y, scale x, scale y
 		video.addToWorld(0,0,0,0,1.75,1.75);
@@ -198,7 +198,7 @@ Main.prototype = {
 
 	},
 
-	gameOver: function(){
+	gameOver: function() {
 		this.game.state.start('GameOver');
 	}
 
