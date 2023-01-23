@@ -158,7 +158,7 @@ Main.prototype = {
 		this.player.body.bounce.y = 0;
 		this.player.body.drag.x = 150;
 		var walk = this.player.animations.add('walk');
-		this.player.animations.play('walk', 20, true);
+		this.player.animations.play('walk', 15, true);
 
 	},
 
