@@ -11,8 +11,9 @@ Main.prototype = {
 		// bg video
 		video = game.add.video('bgvideo');
 		video.play(true);
+		
 		//  x, y, anchor x, anchor y, scale x, scale y
-		video.addToWorld(0,0,0,0,1.75,1.75);
+		video.addToWorld(0,0,0,0,window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio);
 
 		this.tileVelocity = -450;
 		this.rate = 1500;
