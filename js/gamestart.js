@@ -5,7 +5,7 @@ GameStart.prototype = {
   	create: function(){
 
 			this.game.stage.backgroundColor = '479cde';
-            var scoreFont = "60px Arial";
+            var scoreFont = "40px Arial";
 
 		    this.start = this.game.add.text(this.game.world.centerX
 			, this.game.world.centerY

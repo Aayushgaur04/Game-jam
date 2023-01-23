@@ -13,7 +13,7 @@ Main.prototype = {
 		video.play(true);
 		
 		//  x, y, anchor x, anchor y, scale x, scale y
-		video.addToWorld(0,0,0,0,window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio);
+		video.addToWorld();
 
 		this.tileVelocity = -450;
 		this.rate = 1500;
@@ -22,7 +22,7 @@ Main.prototype = {
 		this.tileWidth = this.game.cache.getImage('tile').width;
 		this.tileHeight = this.game.cache.getImage('tile').height;
 		this.boxHeight = this.game.cache.getImage('box').height;
-
+		
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
 		this.floor = this.game.add.group();
@@ -86,7 +86,7 @@ Main.prototype = {
 	},
 
 	addObstacles: function () {
-		var tilesNeeded = Math.floor( Math.random() * (5 - 0));
+		var tilesNeeded = Math.floor( Math.random() * (4 - 0));
 		// var gap = Math.floor( Math.random() * (tilesNeeded - 0));
 		if (this.rate > 200) {
 			this.rate -= 10;
@@ -150,7 +150,7 @@ Main.prototype = {
 
 		this.player = this.game.add.sprite(this.game.world.width/5, this.game.world.height -
 			(this.tileHeight*2), 'player');
-		this.player.scale.setTo(4, 4);
+		this.player.scale.setTo(3, 3);
 		this.player.anchor.setTo(0.5, 1.0);
 		this.game.physics.arcade.enable(this.player);
 		this.player.body.gravity.y = 2200;
@@ -164,7 +164,7 @@ Main.prototype = {
 
 	createScore: function () {
 
-		var scoreFont = "70px Arial";
+		var scoreFont = "40px Arial";
 
 		this.scoreLabel = this.game.add.text(this.game.world.centerX, 70, "0", { font: scoreFont, fill: "#fff" });
 		this.scoreLabel.anchor.setTo(0.5, 0.5);

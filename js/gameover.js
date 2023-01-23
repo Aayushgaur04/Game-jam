@@ -9,6 +9,7 @@ GameOver.prototype = {
 			this.quit = this.game.input.keyboard.addKey(Phaser.Keyboard.ESC);
 			this.resume = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 			this.showScore();
+
 	},
 
 	update: function () {
@@ -21,18 +22,18 @@ GameOver.prototype = {
 		}
 
 	},
-
+	
 	showScore: function () {
 
-		var scoreFont = "60px Arial";
-		var scoreFont2 = "30px Arial";
+		var scoreFont = "40px Arial";
+		var scoreFont2 = "20px Arial";
 
 		this.scoreLabel = this.game.add.text(this.game.world.centerX
 			, this.game.world.centerY / 2, "0", { font: scoreFont, fill: "#fff" });
 		this.scoreLabel.anchor.setTo(0.5, 0.5);
 		this.scoreLabel.align = 'center';
 		this.game.world.bringToTop(this.scoreLabel);
-		this.scoreLabel.text = "!!!Keep your surroundings Cleans!!!\n\nDistance travelled is " + (score);
+		this.scoreLabel.text = "!!!Stop Land Pollution!!!\n\nDistance travelled is " + (score);
 
 		this.highScore = this.game.add.text(this.game.world.centerX
 			, this.game.world.centerY, "0", { font: scoreFont, fill: "#fff" });
@@ -64,6 +65,7 @@ GameOver.prototype = {
 
 	},
 
+
 	restartGame: function(){
 		this.game.state.start("Main");
 	},
@@ -71,5 +73,5 @@ GameOver.prototype = {
 	quitGame: function(){
 		this.game.state.start("GameStart");
 	}
-	
+
 }
