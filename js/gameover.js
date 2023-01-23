@@ -17,7 +17,7 @@ GameOver.prototype = {
 			this.restartGame();
 		}
 		if (this.quit.isDown) {
-			// this.quitGame();
+			this.quitGame();
 		}
 
 	},
@@ -57,7 +57,7 @@ GameOver.prototype = {
 
 		this.restart = this.game.add.text(this.game.world.centerX
 			, this.game.world.centerY * 1.75
-			, "Press \n Space to retry ", { font: scoreFont2, fill: "#fff" });
+			, "Press \n Space to retry \n Ecs to Start Screen ", { font: scoreFont2, fill: "#fff" });
 		this.restart.anchor.setTo(0.5, 0.5);
 		this.restart.align = 'center';
 		this.game.world.bringToTop(this.restart);
@@ -66,6 +66,10 @@ GameOver.prototype = {
 
 	restartGame: function(){
 		this.game.state.start("Main");
+	},
+
+	quitGame: function(){
+		this.game.state.start("GameStart");
 	}
 	
 }
